@@ -1,0 +1,123 @@
+/* Loading font the "cross your fingers way" -  and including the
+font-display: swap modifier for Chrome 60 - more thorough techniques outlined in
+this post https://www.zachleat.com/web/comprehensive-webfonts/ */
+
+/* Webfont: Lato-Black */@font-face {
+    font-family: 'LatoWebBlack';
+    src: url('../fonts/Lato-Black.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/Lato-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/Lato-Black.woff2') format('woff2'), /* Modern Browsers */
+         url('../fonts/Lato-Black.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/Lato-Black.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+}
+
+/* Webfont: Lato-Bold */@font-face {
+    font-family: 'LatoWebBold';
+    src: url('../fonts/Lato-Bold.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/Lato-Bold.woff2') format('woff2'), /* Modern Browsers */
+         url('../fonts/Lato-Bold.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/Lato-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+}
+
+/* Rendering map to fill the height of most standard browsers and set width to 100% */
+
+#map {
+  height: 1000px;
+  width: 100%;
+}
+
+/* Prevent margin and padding around the map, include 'lato' font family
+   to load locally if user has font installed */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'lato', sans-serif;
+}
+
+/* Rendering the semi transparent overlay div */
+
+.nav {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 60px;
+  background-color: #08578C;
+  opacity: .9;
+  z-index: 1;
+}
+
+/* Float text to the left */
+
+.nav h3 {
+  float: left;
+  margin-left: 20px;
+  padding-bottom: 30px;
+  color: #fff;
+  font-family: 'LatoWebBlack';
+}
+
+/* Style the search bar and float right */
+
+.controls {
+  position: relative;
+  float: right;
+  background-color: #fff;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  font-size: 15px;
+  height: 29px;
+  margin: 14px 17px 0 17px;
+  outline: none;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 250px;
+  z-index: 2;
+  font-family: 'LatoWebBold';
+}
+
+.controls:focus {
+  border-color: #08578C;
+  z-index: 3;
+}
+
+/* Style the infowindow and content */
+
+.title {
+  font-weight: bold;
+}
+#infowindow-content {
+  display: none;
+}
+#map #infowindow-content {
+  display: inline;
+}
+
+/* Make sure it looks good on tablets and mobile */
+
+@media screen and (max-width: 750px) {
+  .nav {
+    text-align: center;
+  }
+
+  .nav h3 {
+    float: none;
+    margin: auto;
+    padding-top: 20px;
+  }
+
+  .controls {
+    float: none;
+    margin: auto;
+  }
+}
