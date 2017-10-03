@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!--meta> Hi iBec folks! A few caveats -
+    A more thorough approach would have included a seperate
+    database and used an XML file to pre-populate the map with favorite/best
+    restaurants, or created a function that saved all restaurants that
+    the user searches for and allows them to add their own notes etc, however
+    that was beyond the scope of this project. </meta-->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iBec Map Project</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="nav">
+      <h3>Where do you want to eat?</h3>
+      <input id="pac-input" class="controls" type="text" placeholder="e.g. Aurora Provisions">
+    </div>
+    <div id="map"></div>
+    <div id="infowindow-content">
+      <span id="place-name"  class="title"></span><br>
+
+    <!--div> Leaving a place-id in case we want to add that information
+    to a database in the future.</div-->
+
+          <span id="place-id"></span><br>
+      <span id="place-address"></span>
+    </div>
+    <footer></footer>
+
+    <!--div> Link to javascript file and a hook into maps api.
+    This is also where we load our places api using &libraries=places.
+    bonus: change project.js to projectes6.js to see es6 syntax in action! </div-->
+
+    <script src="assets/js/project.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu3PmYIdOr0EebzqQL2sGQCjrKaUzkONg&libraries=places&callback=initMap"
+    async defer></script>
+  </body>
+</html>
